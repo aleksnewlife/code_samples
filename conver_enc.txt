@@ -1,1 +1,1 @@
- iconv -f UTF-16 -t CP1251 pch.cpp > pch.cpp
+ iconv -f UTF-16 -t CP1251 pch.cpp > pch.cpp.converted
