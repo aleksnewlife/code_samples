@@ -33,6 +33,9 @@
     <ClInclude Include="Independent_Dependendt_calls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Move_Semantic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Independent_Dependendt_calls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Move_Semantic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

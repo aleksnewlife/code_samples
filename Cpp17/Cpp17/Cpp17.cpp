@@ -7,6 +7,7 @@
 #include "FoldExpressions.h"
 #include "Delayed_call_tuple_unpack.h"
 #include "Independent_Dependendt_calls.h"
+#include "Move_Semantic.h"
 
 #include <iostream>
 
@@ -88,6 +89,12 @@ int main()
 		std::cout << "-------------\n\n";
 	}
 
+	if (true)
+	{
+		std::cout << ">>>>>C++ 11 :: move semantic \n\n";
+		test_MoveSemantic();
+		std::cout << "-------------\n\n";
+	}
 
 	return 0;
 }
