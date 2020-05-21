@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "Variant.h"
 #include "DeclareInHeader.h"
+#include "FoldExpressions.h"
 
 #include <iostream>
 
@@ -63,4 +64,13 @@ int main()
 		testVariantType();
 		std::cout << "-------------\n\n";
 	}
+
+	if (true)
+	{
+		std::cout << ">>>>>C++ 17 :: fold expressions \n\n";
+		test_fold_expressions();
+		std::cout << "-------------\n\n";
+	}
+
+	return 0;
 }
