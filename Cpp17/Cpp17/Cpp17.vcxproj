@@ -154,14 +154,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DeclareInHeader.h" />
+    <ClInclude Include="Delayed_call_tuple_unpack.h" />
     <ClInclude Include="FoldExpressions.h" />
+    <ClInclude Include="Independent_Dependendt_calls.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Variant.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cpp17.cpp" />
     <ClCompile Include="DeclareInHeader.cpp" />
+    <ClCompile Include="Delayed_call_tuple_unpack.cpp" />
     <ClCompile Include="FoldExpressions.cpp" />
+    <ClCompile Include="Independent_Dependendt_calls.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

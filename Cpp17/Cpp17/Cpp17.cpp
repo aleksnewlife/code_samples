@@ -5,6 +5,8 @@
 #include "Variant.h"
 #include "DeclareInHeader.h"
 #include "FoldExpressions.h"
+#include "Delayed_call_tuple_unpack.h"
+#include "Independent_Dependendt_calls.h"
 
 #include <iostream>
 
@@ -71,6 +73,21 @@ int main()
 		test_fold_expressions();
 		std::cout << "-------------\n\n";
 	}
+
+	if (true)
+	{
+		std::cout << ">>>>>C++ 17 :: saved callbacks \n\n";
+		test_simpleSavedCallback();
+		std::cout << "-------------\n\n";
+	}
+
+	if (true)
+	{
+		std::cout << ">>>>>C++ 17 :: independent dependent calls \n\n";
+		test_Independent_Dependent_Calls();
+		std::cout << "-------------\n\n";
+	}
+
 
 	return 0;
 }

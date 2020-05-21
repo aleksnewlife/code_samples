@@ -27,6 +27,12 @@
     <ClInclude Include="FoldExpressions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Delayed_call_tuple_unpack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Independent_Dependendt_calls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -42,6 +48,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FoldExpressions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Delayed_call_tuple_unpack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Independent_Dependendt_calls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
