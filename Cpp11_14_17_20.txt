@@ -1,0 +1,49 @@
+
+/*
+    ======================================================================================================
+    Cpp 11 / C++11
+    ======================================================================================================
+*/
+    std::tuple<>;
+    std::variant<>;
+    std::any<>;
+    #include <memory>
+        std::unique_ptr<>;
+            std::make_unique<>();
+        std::shared_ptr<>;
+            std::make_shared<>();
+            std::enable_shared_from_this<>;
+            std::shared_from_this<>;
+            std::static_pointer_cast<>();
+            std::dynamic_pointer_cast<>();
+            std::get_deleter<>();
+            std::default_delete<>;
+
+/*
+    ======================================================================================================
+    Cpp 17 / C++17
+    ======================================================================================================
+*/
+namespace Cpp17 
+{
+    /* ++ Class Template Argument Deduction (CTAD) ++
+        - https://habr.com/ru/post/461963/
+        - https://en.cppreference.com/w/cpp/language/class_template_argument_deduction
+    */
+
+
+
+    // - Class Template Argument Deduction (CTAD) - //
+
+
+}
+
+
+/*
+    ======================================================================================================
+    Cpp 20 / C++20
+    ======================================================================================================
+*/
+
+
+
