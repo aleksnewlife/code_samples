@@ -18,6 +18,34 @@
             std::dynamic_pointer_cast<>();
             std::get_deleter<>();
             std::default_delete<>;
+    // Async:
+    // http://www.cplusplus.com/reference/multithreading/
+    volitile variable;
+    #include <thread>
+        std::thread;
+        std::async;
+    #include <future>
+        std::future;
+        std::promise;
+
+        std::launch; //launch policy
+    #include <atomic>
+        std::atomic<T>;
+        std::atomic_flag;
+    #include <mutex>
+        std::mutex;
+        std::recursive_mutex;
+        std::timed_mutex;
+
+        std::lock_guard;
+        std::unique_lock;
+
+        std::lock();
+        std::try_lock();
+        std::call_once()
+    #include <condition_variable>
+
+
 
 /*
     ======================================================================================================
