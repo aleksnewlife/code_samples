@@ -154,6 +154,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="map_vs_unordered_map.cpp" />
+    <ClCompile Include="move_sem_in_vector.cpp" />
     <ClCompile Include="stl_vs_not_stl.cpp" />
     <ClCompile Include="TimeIt.cpp" />
   </ItemGroup>

@@ -23,7 +23,6 @@ static void BM_FindIf(benchmark::State& state)
 }
 BENCHMARK(BM_FindIf);
 
-
 static void BM_FindIfLoop(benchmark::State& state)
 {
 	std::vector<int> vec(1000, 0);
@@ -44,7 +43,6 @@ static void BM_FindIfLoop(benchmark::State& state)
 	}
 }
 BENCHMARK(BM_FindIfLoop);
-
 
 static void BM_FindIfLoop2(benchmark::State& state)
 {
@@ -67,7 +65,6 @@ static void BM_FindIfLoop2(benchmark::State& state)
 }
 BENCHMARK(BM_FindIfLoop2);
 
-
 static void BM_FindIfLoopC(benchmark::State& state)
 {
 	int vec[1000];
@@ -89,3 +86,5 @@ static void BM_FindIfLoopC(benchmark::State& state)
 	}
 }
 BENCHMARK(BM_FindIfLoopC);
+
+

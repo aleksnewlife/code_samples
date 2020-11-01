@@ -21,5 +21,11 @@
     <ClCompile Include="stl_vs_not_stl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="move_sem_in_vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="map_vs_unordered_map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
