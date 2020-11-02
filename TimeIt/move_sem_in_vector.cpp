@@ -1,7 +1,10 @@
-
+#include "Derectives.h"
 #include "benchmark/benchmark.h"
 #include <string>
 #include <iostream>
+
+
+#ifdef MOVE_SEM_VEC
 
 class Element_Bad
 {
@@ -112,3 +115,5 @@ static void BadResizeVector_WithCopy(benchmark::State& state)
 
 BENCHMARK_TEMPLATE(BadResizeVector_WithCopy, Element_Bad)->Iterations(1000000);
 BENCHMARK_TEMPLATE(BadResizeVector_WithCopy, Element_Good)->Iterations(1000000);
+
+#endif

@@ -125,6 +125,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\benchmark\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,6 +159,10 @@
     <ClCompile Include="move_sem_in_vector.cpp" />
     <ClCompile Include="stl_vs_not_stl.cpp" />
     <ClCompile Include="TimeIt.cpp" />
+    <ClCompile Include="vector_vs_deque.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Derectives.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

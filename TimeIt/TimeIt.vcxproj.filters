@@ -27,5 +27,13 @@
     <ClCompile Include="map_vs_unordered_map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vector_vs_deque.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Derectives.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

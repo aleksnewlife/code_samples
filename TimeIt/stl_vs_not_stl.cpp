@@ -1,6 +1,8 @@
-
+#include "Derectives.h"
 #include "benchmark/benchmark.h"
 
+
+#ifdef STL_NOT_STL
 
 // Benchmark: std::find_if vs for //
 
@@ -21,7 +23,7 @@ static void BM_FindIf(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIf);
+BENCHMARK(BM_FindIf)->Iterations(100000);
 
 static void BM_FindIfLoop(benchmark::State& state)
 {
@@ -42,7 +44,7 @@ static void BM_FindIfLoop(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIfLoop);
+BENCHMARK(BM_FindIfLoop)->Iterations(100000);
 
 static void BM_FindIfLoop2(benchmark::State& state)
 {
@@ -63,7 +65,7 @@ static void BM_FindIfLoop2(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIfLoop2);
+BENCHMARK(BM_FindIfLoop2)->Iterations(100000);
 
 static void BM_FindIfLoopC(benchmark::State& state)
 {
@@ -85,6 +87,6 @@ static void BM_FindIfLoopC(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIfLoopC);
+BENCHMARK(BM_FindIfLoopC)->Iterations(100000);
 
-
+#endif
