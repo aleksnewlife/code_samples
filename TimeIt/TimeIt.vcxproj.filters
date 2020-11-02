@@ -30,6 +30,9 @@
     <ClCompile Include="vector_vs_deque.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="shared_ptr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Derectives.h">

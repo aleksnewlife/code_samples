@@ -4,3 +4,4 @@
 #define MOVE_SEM_VEC
 #define STL_NOT_STL
 #define VECTOR_VS_DEQUE
+#define SHARED_PTR

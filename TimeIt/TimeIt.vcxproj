@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="map_vs_unordered_map.cpp" />
     <ClCompile Include="move_sem_in_vector.cpp" />
+    <ClCompile Include="shared_ptr.cpp" />
     <ClCompile Include="stl_vs_not_stl.cpp" />
     <ClCompile Include="TimeIt.cpp" />
     <ClCompile Include="vector_vs_deque.cpp" />

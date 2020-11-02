@@ -6,7 +6,7 @@
 
 // Benchmark: std::find_if vs for //
 
-static void BM_FindIf(benchmark::State& state)
+static void STL_FindIf(benchmark::State& state)
 {
 	std::vector<int> vec(1000, 0);
 	int findVal = 1000;
@@ -23,9 +23,9 @@ static void BM_FindIf(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIf)->Iterations(100000);
+BENCHMARK(STL_FindIf)->Iterations(100000);
 
-static void BM_FindIfLoop(benchmark::State& state)
+static void STL_FindIfLoop(benchmark::State& state)
 {
 	std::vector<int> vec(1000, 0);
 	int findVal = 1000;
@@ -44,9 +44,9 @@ static void BM_FindIfLoop(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIfLoop)->Iterations(100000);
+BENCHMARK(STL_FindIfLoop)->Iterations(100000);
 
-static void BM_FindIfLoop2(benchmark::State& state)
+static void STL_FindIfLoop2(benchmark::State& state)
 {
 	std::vector<int> vec(1000, 0);
 	int findVal = 1000;
@@ -65,9 +65,9 @@ static void BM_FindIfLoop2(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIfLoop2)->Iterations(100000);
+BENCHMARK(STL_FindIfLoop2)->Iterations(100000);
 
-static void BM_FindIfLoopC(benchmark::State& state)
+static void STL_FindIfLoopC(benchmark::State& state)
 {
 	int vec[1000];
 	std::memset((void*)vec, 0, 1000);
@@ -87,6 +87,6 @@ static void BM_FindIfLoopC(benchmark::State& state)
 		}
 	}
 }
-BENCHMARK(BM_FindIfLoopC)->Iterations(100000);
+BENCHMARK(STL_FindIfLoopC)->Iterations(100000);
 
 #endif
