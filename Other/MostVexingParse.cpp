@@ -1,5 +1,20 @@
 
 
+// URL: https://en.wikipedia.org/wiki/Most_vexing_parse
+
+
+/* The common ways to force the compiler to consider this as a variable definition are:
+  1. To add an extra pair of parentheses:
+    TimeKeeper time_keeper((Timer()));
+  2. To use copy initialization:[1]
+    TimeKeeper time_keeper = TimeKeeper(Timer());
+     
+    (In C++11 and later.) To use uniform initialization[2][3] with braces:
+    TimeKeeper time_keeper{Timer()};
+    TimeKeeper time_keeper(Timer{});
+    TimeKeeper time_keeper{Timer{}};
+*/
+
 class Timer {
  public:
 	 Timer()

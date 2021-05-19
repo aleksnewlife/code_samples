@@ -79,6 +79,7 @@ int main()
 	{
 		std::cout << ">>>>>C++ 17 :: saved callbacks \n\n";
 		test_simpleSavedCallback();
+		test_objectCallback();
 		std::cout << "-------------\n\n";
 	}
 

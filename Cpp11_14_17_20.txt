@@ -1,50 +1,122 @@
 
+
+https://github.com/PacktPublishing/Cpp17-STL-Cookbook
+
 /*
     ======================================================================================================
     Cpp 11 / C++11
     ======================================================================================================
 */
-    std::tuple<>;
-    std::variant<>;
-    std::any<>;
-    #include <memory>
-        std::unique_ptr<>;
-            std::make_unique<>();
-        std::shared_ptr<>;
-            std::make_shared<>();
-            std::enable_shared_from_this<>;
-            std::shared_from_this<>;
-            std::static_pointer_cast<>();
-            std::dynamic_pointer_cast<>();
-            std::get_deleter<>();
-            std::default_delete<>;
-    // Async:
-    // http://www.cplusplus.com/reference/multithreading/
-    volitile variable;
-    #include <thread>
-        std::thread;
-        std::async;
-    #include <future>
-        std::future;
-        std::promise;
 
-        std::launch; //launch policy
-    #include <atomic>
-        std::atomic<T>;
-        std::atomic_flag;
-    #include <mutex>
-        std::mutex;
-        std::recursive_mutex;
-        std::timed_mutex;
+New  in C++11:
+    [cpp]
+        std::tuple<>;
+        std::variant<>;
+        std::any<>;
+        #include <memory>
+            std::unique_ptr<>;
+                std::make_unique<>();
+            std::shared_ptr<>;
+                std::make_shared<>();
+                std::enable_shared_from_this<>;
+                std::shared_from_this<>;
+                std::static_pointer_cast<>();
+                std::dynamic_pointer_cast<>();
+                std::get_deleter<>();
+                std::default_delete<>;
+        // Async:
+        // http://www.cplusplus.com/reference/multithreading/
+        volitile variable;
+        #include <thread>
+            std::thread;
+            std::async;
+        #include <future>
+            std::future;
+            std::promise;
 
-        std::lock_guard;
-        std::unique_lock;
+            std::launch; //launch policy
+        #include <atomic>
+            std::atomic<T>;
+            std::atomic_flag;
+        #include <mutex>
+            std::mutex;
+            std::recursive_mutex;
+            std::timed_mutex;
 
-        std::lock();
-        std::try_lock();
-        std::call_once()
-    #include <condition_variable>
+            std::lock_guard;
+            std::unique_lock;
 
+            std::lock();
+            std::try_lock();
+            std::call_once()
+        #include <condition_variable>
+    [end]
+
+Tuple:
+    Compare some values using tuples:
+        [cpp]
+            int a1, a2, b1, b2;
+            bool res = std::tie(a1, a2) < std::tie(b1, b2);
+        [end]
+
+    std::tie():
+        - does not copy values, uses references
+
+    std::make_tuple():
+        - copy values
+
+
+Itrerators:
+    - Input/Output Iterat
+    - Forward Iterator
+    - Random access Itearator
+    - Bidirectional Iterator
+
+    Std function for iterators:
+        - std::distance(a, b)
+        - std::advance(it, step) - move iterator
+        - std::next(it, int_val) -  returns moved iterator
+        - std::lower_bound(it, it_end, value)  -  res >= value
+        - std::upper_bound(it, it_end, value)  -  res > value
+Vector:
+    Vector auto resize:
+        - Class-element with move semantic(move constructor and operator) with no "noexcept", will be copied 
+        - Class-element with move semantic(move constructor and operator) with "noexcept", will be MOVED
+List:
+    Methods:
+        list.splice(it, other_list) - moves elements from other_list to list, clear other_list (analog: loop list.insert(++it, other_list_element))
+            - for sort range of list use:
+                second list, splice to second list, sort second list, splice back to current list
+        list.merge(other_list) - merge other_list to list
+        list.unique() - make all elements unique in list
+
+Map & set:
+    - map & set - not friendly for processor cache
+
+    - std::less<> -- std::less<void> - includes "is_transparent == std::true_type" witch using in std::map/set::find, std::map/set::lower_bound
+        URL: https://en.cppreference.com/w/cpp/utility/functional/less_void
+        Use-case:
+        [cpp]
+            std::map<std::string, int> m1;
+            m1.find("std_to_find"); // const char* construct string
+
+            std::map<std::string, int, std::less<>> m2;
+            m2.find("std_to_find"); // const char* NOT construct string!! because of using is_transparent member
+        [end]
+
+    - std::map::extract + std::map::insert_or_assign - change element on fly, no refresh tree
+
+Threading:
+    Get result from thread by reference:
+        [cpp]
+            int result = 0;
+            auto task = [](int& r) {
+                r = 42;
+            };
+
+            //std::thread t(task, result);  // Error: not compiled
+            std::thread t(task, std::ref(result));  // True way for pass result by reference
+        [end]
 
 
 /*
@@ -52,19 +124,14 @@
     Cpp 17 / C++17
     ======================================================================================================
 */
-namespace Cpp17 
-{
-    /* ++ Class Template Argument Deduction (CTAD) ++
-        - https://habr.com/ru/post/461963/
-        - https://en.cppreference.com/w/cpp/language/class_template_argument_deduction
-    */
+
+New in C++17:
+    ?
 
 
-
-    // - Class Template Argument Deduction (CTAD) - //
-
-
-}
+Class Template Argument Deduction (CTAD):
+    URL: https://habr.com/ru/post/461963/
+    URL: https://en.cppreference.com/w/cpp/language/class_template_argument_deduction
 
 
 /*
@@ -73,5 +140,138 @@ namespace Cpp17
     ======================================================================================================
 */
 
+New in C++20:
+    ?
 
 
+/*
+    ======================================================================================================
+    Codes in open standart:
+    ======================================================================================================
+*/
+
+
+Check class member exist:
+    URL: https://stackoverflow.com/questions/257288/templated-check-for-the-existence-of-a-class-member-function
+    Before C++11:
+        [cpp]
+            #include <iostream>
+            struct Hello
+            {
+                int helloworld() { return 0; }
+            };
+
+            struct Generic {};    
+
+            // SFINAE test
+            template <typename T>
+            class has_helloworld
+            {
+                typedef char one;
+                struct two { char x[2]; };
+
+                template <typename C> static one test( decltype(&C::helloworld) ) ;
+                template <typename C> static two test(...);    
+
+            public:
+                enum { value = sizeof(test<T>(0)) == sizeof(char) };
+            };
+                
+            int main(int argc, char *argv[])
+            {
+                std::cout << has_helloworld<Hello>::value << std::endl;
+                std::cout << has_helloworld<Generic>::value << std::endl;
+                return 0;
+            }
+        [end]
+    C++11:
+        [cpp]
+            template<class T>
+            auto optionalToString(T* obj) -> decltype(  obj->toString()  )
+            {
+                return     obj->toString();
+            }
+            auto optionalToString(...) -> string
+            {
+                return "toString not defined";
+            }
+            // Update, 3 years later: (and this is untested). To test for the existence, I think this will work:
+
+            template<class T>
+            constexpr auto test_has_toString_method(T* obj) -> decltype(  obj->toString() , std::true_type{} )
+            {
+                return     obj->toString();
+            }
+            constexpr auto test_has_toString_method(...) -> std::false_type
+            {
+                return "toString not defined";
+            }
+        [end]
+    C++17
+        [cpp]
+            #include <type_traits>
+            struct A{};
+
+            struct B{ int foo(int a, int b);};
+
+            struct C{void foo(int a, int b);};
+
+            struct D{int foo();};
+
+            struct E: public B{};
+
+            // available in C++17 onwards as part of <type_traits>
+            template<typename...>
+            using void_t = void;
+
+            template<typename T, typename = void> struct Has_foo: std::false_type{};
+
+            template<typename T> 
+            struct Has_foo<T, void_t<
+                std::enable_if_t<
+                    std::is_same<
+                        int, 
+                        decltype(std::declval<T>().foo((int)0, (int)0))
+                    >::value
+                >
+            >>: std::true_type{};
+
+
+            static_assert(not Has_foo<A>::value, "A does not have a foo");
+            static_assert(Has_foo<B>::value, "B has a foo");
+            static_assert(not Has_foo<C>::value, "C has a foo with the wrong return. ");
+            static_assert(not Has_foo<D>::value, "D has a foo with the wrong arguments. ");
+            static_assert(Has_foo<E>::value, "E has a foo since it inherits from B");
+        [end]
+
+Convert vetor to tuple:
+    URL: https://stackoverflow.com/questions/28410697/c-convert-vector-to-tuple
+    C++11:
+        [cpp]
+            template <typename F, size_t... Is>
+            auto gen_tuple_impl(F func, std::index_sequence<Is...> )
+            {
+                return std::make_tuple(func(Is)...);
+            }
+
+            template <size_t N, typename F>
+            auto gen_tuple(F func)
+            {
+                return gen_tuple_impl(func, std::make_index_sequence<N>{} );
+            }
+        [end]
+
+    C++14:
+        [cpp]
+            template <typename T, std::size_t... Indices>
+            auto vectorToTupleHelper(const std::vector<T>& v, std::index_sequence<Indices...>)
+            {
+                return std::make_tuple(v[Indices]...);
+            }
+
+            template <std::size_t N, typename T>
+            auto vectorToTuple(const std::vector<T>& v) {
+                assert(v.size() >= N);
+                return vectorToTupleHelper(v, std::make_index_sequence<N>());
+            }        
+        [end]

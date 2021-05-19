@@ -1,3 +1,4 @@
 #pragma once
 
-int test_simpleSavedCallback(void);
+void test_simpleSavedCallback(void);
+void test_objectCallback();
